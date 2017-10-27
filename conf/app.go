@@ -2,20 +2,20 @@ package conf
 
 import(
 	"github.com/gin-gonic/gin"	
-	"database/sql"				//database plugin
-	"oscar-go/models"
-	"oscar-go/routers"
+	"github.com/jinzhu/gorm"
+	"oscar-health-go/models"
+	"oscar-health-go/routers"
 	"fmt"
 )
 
 var(
-	OApp 		*App
+	oApp 		*App
 )
 
 func init(){
 	db := models.NewDatabase()
 	router := routers.NewRouter()
-	OApp = &App{ Router:router, Db: db}
+	oApp = &App{ Router:router, Db: db}
 }
 
 func (a *App) Run(){
@@ -26,10 +26,10 @@ func (a *App) Run(){
 
 func NewApp() *App{
 	fmt.Println("..................New App")
-	return OApp
+	return oApp
 }
 
 type App struct{
 	Router 		*gin.Engine
-	Db 			*sql.DB		
+	Db 			*gorm.DB		
 }

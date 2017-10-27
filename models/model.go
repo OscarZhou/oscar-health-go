@@ -1,8 +1,8 @@
 package models
 
 import(
-	"database/sql"				//database plugin
-	_ "github.com/lib/pq"		//postgresql plugin, which needs to use together with "database/sql"
+	"github.com/jinzhu/gorm"
+    _ "github.com/jinzhu/gorm/dialects/postgres"
 	"fmt"
 )
 
@@ -15,7 +15,7 @@ const(
 )
 
 var(
-	db		*sql.DB
+	db		*gorm.DB
 )
 
 func init(){
@@ -23,25 +23,21 @@ func init(){
 	var err error
 	db, err = db_new()
 	if err != nil{
-		fmt.Println("连接数据库失败")
+		fmt.Println("failed to connect database")
 	}
+	db.AutoMigrate(&Product{}, &Category{})
 }
 
-func NewDatabase() *sql.DB{
+func NewDatabase() *gorm.DB{
 	return db
 }
 
 
-func db_new() (*sql.DB, error){
-	psqlInfo := fmt.Sprintf("host=%s port=%d user=%s password=%s dbname=%s sslmode=disable", host, port, user, password, dbname)
-	db, err := sql.Open("postgres", psqlInfo)
+func db_new() (*gorm.DB, error){
+	psqlInfo := fmt.Sprintf("host=%s port=%d user=%s password=%s dbname= %s sslmode=disable", host, port, user, password, dbname)
+	db, err := gorm.Open("postgres", psqlInfo)
 	if err != nil{
-		return &sql.DB{}, err
+		return &gorm.DB{}, err
 	}
-
-	err = db.Ping()
-	if err != nil{
-		return &sql.DB{}, err
-	}
-	return db, nil
+	return db, err
 }

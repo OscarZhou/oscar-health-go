@@ -2,7 +2,7 @@ package routers
 
 import(
 	"github.com/gin-gonic/gin"
-	"oscar-go/controllers"
+	"oscar-health-go/controllers"
 	"fmt"
 )
 
@@ -23,4 +23,10 @@ func NewRouter() *gin.Engine{
 func configRouter() {
 	fmt.Println("...................Configure Router")
 	router.GET("/webapi/v1/product/", (&controllers.ProductController{}).GetProducts)
+
+	router.GET("/webapi/v1/category/", (&controllers.CategoryController{}).GetProductCategories)
+	router.GET("/webapi/v1/category/:id", (&controllers.CategoryController{}).GetProductCategory)
+	router.POST("/webapi/v1/category/", (&controllers.CategoryController{}).CreateProductCategory)
+	router.PUT("/webapi/v1/category/:id", (&controllers.CategoryController{}).UpdateProductCategory)
+	router.DELETE("/webapi/v1/category/:id", (&controllers.CategoryController{}).DeleteProductCategory)
 }

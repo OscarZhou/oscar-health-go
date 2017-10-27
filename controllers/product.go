@@ -2,8 +2,7 @@ package controllers
 
 import(
 	"github.com/gin-gonic/gin"
-	"oscar-go/models"
-	"log"
+	"oscar-health-go/models"
 	"net/http"
 )
 
@@ -13,10 +12,14 @@ type ProductController struct{
 
 func (this *ProductController) GetProducts(c *gin.Context){
 	sort := c.DefaultQuery("sort", "")
-	products, err := models.GetProducts(sort)
-	if err != nil{
-		log.Fatal(err)
-	}
+	products := models.GetProducts(sort)
+	
 	c.JSON(http.StatusOK, products)
 }
 
+func (this *ProductController) GetProduct(c *gin.Context){
+	id := c.Param("id")
+	product := models.GetProduct(id)
+
+	c.JSON(http.StatusOK, product)
+}
