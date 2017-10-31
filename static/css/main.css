@@ -1,0 +1,49 @@
+body{
+    padding-top: 30px;
+    margin: 0 auto;
+
+}
+
+.form-control{
+    float:right;
+    width: 400px;
+}
+
+.btn-area{
+    text-align: right;
+}
+
+.button-group {
+    text-align: right;
+}
+
+div.container{
+    margin-top: 100px;
+    border: 1px solid #000;
+    border-radius: 10px;
+    padding: 20px 15px;
+    
+}
+
+.SignIn input:hover{
+    cursor: pointer;
+}
+
+.OauthSignIn a{
+    display: block;
+    padding:0px;
+    margin-top: 10px;
+    background-color: #fff;
+    border: none;
+    text-align: center;
+}
+
+.OauthSignIn img:hover{
+    cursor: pointer;
+}
+
+.OauthSignIn img{
+    width: 200px;
+    height: 46px;
+}
+

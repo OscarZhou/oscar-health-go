@@ -25,7 +25,7 @@ func init(){
 	if err != nil{
 		fmt.Println("failed to connect database")
 	}
-	db.AutoMigrate(&Product{}, &Category{})
+	db.AutoMigrate(&Product{}, &Category{}, &Brand{})
 }
 
 func NewDatabase() *gorm.DB{

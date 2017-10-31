@@ -1,0 +1,27 @@
+{  
+    "Creds":[  
+       {  
+          "ThirdParty":"google",
+          "Cid":"841347352749-7htlim54baibrbtet5d3bqc6svrjdgq2.apps.googleusercontent.com",
+          "Csecret":"Qk00QjhlzN2zf0GkZ_sEDLCC",
+          "RedirectURL":"http://127.0.0.1:9090/auth",
+          "Scopes":[  
+            "https://www.googleapis.com/auth/userinfo.email"
+          ],
+          "AuthURL":"https://accounts.google.com/o/oauth2/auth",
+          "TokenURL":"https://accounts.google.com/o/oauth2/token"
+       },
+       {  
+          "ThirdParty":"auth0",
+          "Cid":"oua-502BEZDq1_2w8wb0h5J-opUOvBy2",
+          "Csecret":"RdMzoMjq97r596d3IkanEMD28JCZrWa8OpCH0POf5OB0KH8ArosJx4zzgbYlM0td-92T2qmL0WiiRV4u1r",
+          "RedirectURL":"http://localhost:9090",
+          "Scopes":[
+            "openid",
+            "profile"
+          ],
+          "AuthURL":"https://oscarhealth.au.auth0.com/authorize",
+          "TokenURL":"https://oscarhealth.au.auth0.com/oauth/token"
+       }
+    ]
+ }

@@ -4,6 +4,7 @@ import(
 	"github.com/gin-gonic/gin"
 	"html/template"
 	"net/http"
+	"fmt"
 )
 
 type Controller struct{
@@ -17,70 +18,74 @@ type Controller struct{
 }
 
 type ControllerInterface interface{
-	Init(ct *gin.Context, cn string)
-	Prepare()
+	Init(c *gin.Context)
+	Prepare(c *gin.Context)
 	Get(ct *gin.Context)
-	Post()
-	Delete()
-	Put()
-	Head()
-	Patch()
-	Options()
+	Post(c *gin.Context)
+	Delete(c *gin.Context)
+	Put(c *gin.Context)
+	Head(c *gin.Context)
+	Patch(c *gin.Context)
+	Options(c *gin.Context)
 	Finish()
 	Render() error
 }
 
-func (c *Controller) Init(ct *gin.Context, cn string){
-	c.Data = make(map[interface{}]interface{})
-	c.Layout = make([]string, 0)
-	c.TplNames = ""
-	c.ChildName = cn
-	c.Ct = ct
-	c.TplExt = "tpl"
+func (ct *Controller) Init(c *gin.Context){
+	fmt.Println(".....................Init Base Controller")
+	ct.Data = make(map[interface{}]interface{})
+	ct.Layout = make([]string, 0)
+	ct.TplNames = ""
+	ct.ChildName = ""
+	ct.Ct = c
+	ct.TplExt = "tpl"
 }
 
-func (c *Controller) Prepare(){
-
+func (ct *Controller) Prepare(c *gin.Context){
+	http.Error(ct.Ct.Writer, "Method Not Allowed", 405)
 }
 
 func (c *Controller) Finish(){
 	
 }
 
+// func (ct *Controller) Get(){
+// 	http.Error(ct.Ct.Writer, "Method Not Allowed", 405)
+// }
+
 func (ct *Controller) Get(c *gin.Context){
-	http.Error(c.Writer, "Method Not Allowed", 405)
+	http.Error(ct.Ct.Writer, "Method Not Allowed", 405)
 }
 
 
 func (ct *Controller) Post(c *gin.Context){
-	http.Error(c.Writer, "Method Not Allowed", 405)
+	http.Error(ct.Ct.Writer, "Method Not Allowed", 405)
 }
 
 
 func (ct *Controller) Delete(c *gin.Context){
-	http.Error(c.Writer, "Method Not Allowed", 405)
+	http.Error(ct.Ct.Writer, "Method Not Allowed", 405)
 }
 	
 func (ct *Controller) Put(c *gin.Context){
-	http.Error(c.Writer, "Method Not Allowed", 405)
+	http.Error(ct.Ct.Writer, "Method Not Allowed", 405)
 }
 
 func (ct *Controller) Head(c *gin.Context){
-	http.Error(c.Writer, "Method Not Allowed", 405)
+	http.Error(ct.Ct.Writer, "Method Not Allowed", 405)
 }
 
 func (ct *Controller) Patch(c *gin.Context){
-	http.Error(c.Writer, "Method Not Allowed", 405)
+	http.Error(ct.Ct.Writer, "Method Not Allowed", 405)
 }
 
 func (ct *Controller) Options(c *gin.Context){
-	http.Error(c.Writer, "Method Not Allowed", 405)
+	http.Error(ct.Ct.Writer, "Method Not Allowed", 405)
 }	
 
 func (ct *Controller) Render() error{
 	return nil
 }
-
 
 
 
