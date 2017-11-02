@@ -40,31 +40,28 @@
     </script>
 </head>
 
-<body class="col-lg-6 col-lg-push-3">
-    <div class="container">
-        <form class="SignIn" method="post" action="">
-            <div class="form-group">
-                <label class="control-label" for="LoginId">UserName:</label>
-                <input class="form-control" type="text" id="LoginId" name="LoginId" placeholder="User Name">
-            </div>
-            <div class="form-group">
-                <label class="control-label" for="LoginPwd">Password:</label>
-                <input class="form-control" type="text" id="LoginPwd" name="LoginPwd" placeholder="Password">
-            </div>
-            <div class="button-group">
-                <input type="button" class="btn btn-dark" id="SignUp" value="Sign Up" />
-                <input type="button" class="btn btn-dark" id="SignIn" value="Sign In" />
-            </div>
-            
-        </form>
-        <div class="OauthSignIn">
-            <a id="SignInWithAuth0" >
-                <img src="../static/img/oauth/btn_google_signin_dark_pressed_web.png">
-            </a>
-            <a id="SignInWithGoogle" href="http://localhost:9090/login?authServer=google">
-                <img src="../static/img/oauth/btn_google_signin_dark_normal_web.png">
-            </a>
-        </div>
+<body>
+    <aside>
+        <ul class="nav flex-column">
+            <li class="nav-item">
+                <a class="nav-link active" href="#">首页</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">奶粉</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">蜂蜜</a>
+            </li>            
+            <li class="nav-item">
+                <a class="nav-link" href="#">保健品</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link disabled" href="#">Disabled</a>
+            </li>
+        </ul>
+    </aside>
+    <div class="container col-lg-6 col-lg-push-3">
+        
             
     </div>
     

@@ -1,7 +1,15 @@
 body{
     padding-top: 30px;
     margin: 0 auto;
+    width: 100%;
+    height: auto;
+    border: 1px solid #FF0000;
+}
 
+aside{
+    width: 20%;
+    float: left;
+    border: 1px solid #00FF00;
 }
 
 .form-control{
@@ -18,11 +26,12 @@ body{
 }
 
 div.container{
+    width: 80%;
     margin-top: 100px;
     border: 1px solid #000;
     border-radius: 10px;
     padding: 20px 15px;
-    
+    float:left;
 }
 
 .SignIn input:hover{

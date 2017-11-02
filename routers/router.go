@@ -22,11 +22,20 @@ func NewRouter() *gin.Engine{
 	return router
 }
 
+// func loadTemplates(){
+// 	var 
+// }
+
 func configRouter() {
 	fmt.Println("...................Configure Router")
-	router.Use(sessions.Sessions("gosession", store))
+	router.GET("/", (&controllers.DefaultController{}).Index)
 
-	router.GET("login", (&controllers.OauthController{}).LoginByAuth)
+	router.Use(sessions.Sessions("gosession", store))
+	{
+		router.GET("login", (&controllers.OauthController{}).LoginByAuth)
+		router.GET("auth", (&controllers.OauthController{}).AuthorizationCodeMethod)
+	}
+
 
 	v1 := router.Group("/webapi/v1", (&controllers.Controller{}).Init)
 	{

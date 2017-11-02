@@ -9,7 +9,8 @@
             "https://www.googleapis.com/auth/userinfo.email"
           ],
           "AuthURL":"https://accounts.google.com/o/oauth2/auth",
-          "TokenURL":"https://accounts.google.com/o/oauth2/token"
+          "TokenURL":"https://accounts.google.com/o/oauth2/token",
+          "UserInfoURL":"https://www.googleapis.com/oauth2/v3/userinfo"
        },
        {  
           "ThirdParty":"auth0",
@@ -21,7 +22,8 @@
             "profile"
           ],
           "AuthURL":"https://oscarhealth.au.auth0.com/authorize",
-          "TokenURL":"https://oscarhealth.au.auth0.com/oauth/token"
+          "TokenURL":"https://oscarhealth.au.auth0.com/oauth/token",
+          "UserInfoURL":"https://oscarhealth.au.auth0.com/userinfo"
        }
     ]
  }
