@@ -16,7 +16,7 @@
           "ThirdParty":"auth0",
           "Cid":"oua-502BEZDq1_2w8wb0h5J-opUOvBy2",
           "Csecret":"RdMzoMjq97r596d3IkanEMD28JCZrWa8OpCH0POf5OB0KH8ArosJx4zzgbYlM0td-92T2qmL0WiiRV4u1r",
-          "RedirectURL":"http://localhost:9090",
+          "RedirectURL":"http://localhost:9090/auth",
           "Scopes":[
             "openid",
             "profile"

@@ -16,12 +16,18 @@
             }).mouseleave(function(){
                 $(this).attr("src", "../../static/img/oauth/btn_google_signin_dark_normal_web.png")
             })
+
+            $("#SignInWithAuth0 a").mouseover(function(){
+                $(this).css('background-color', '#EFF0F1')
+            }).mouseleave(function(){
+                $(this).css('background-color', '#FFFFFF')
+            })
         });
     </script>
 </head>
 
-<body class="col-lg-6 col-lg-push-3">
-    <div class="container">
+<body>
+    <div class="container col-lg-6 col-lg-push-3 col-md-6 col-md-push-3 col-xl-6 col-xl-push-3 col-xs-6 col-xs-push-3">
         <form class="SignIn" method="post" action="">
             <div class="form-group">
                 <label class="control-label" for="LoginId">UserName:</label>
@@ -37,13 +43,19 @@
             </div>
             
         </form>
+
         <div class="OauthSignIn">
-            <a id="SignInWithAuth0" >
-                <img src="../../static/img/oauth/btn_google_signin_dark_pressed_web.png">
-            </a>
-            <a id="SignInWithGoogle" href="http://localhost:9090/login?authServer=google">
-                <img src="../../static/img/oauth/btn_google_signin_dark_normal_web.png">
-            </a>
+            <div id="SignInWithAuth0">
+                <a href="http://localhost:9090/login?authServer=auth0">
+                    <img src="../../static/img/oauth/btn_auth0_signin_dark_normal_web.png">       Sign in with Auth0
+                </a> 
+            </div>
+            <div id="SignInWithGoogle">
+                <a href="http://localhost:9090/login?authServer=google">
+                    <img src="../../static/img/oauth/btn_google_signin_dark_normal_web.png">
+                </a>    
+            </div>
+            
         </div>
             
     </div>

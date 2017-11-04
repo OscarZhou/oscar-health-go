@@ -2,15 +2,18 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link href="../static/css/bootstrap.css" rel="stylesheet" />
-    <link href="../static/css/main.css" rel="stylesheet" />
-    <script type="text/javascript" src="../static/js/bootstrap.js"></script>
-    <script type="text/javascript" src="../static/js/jquery-3.1.1.js"></script>
+    <link href="/static/css/bootstrap.css" rel="stylesheet" />
+    <link href="/static/css/main.css" rel="stylesheet" />
+    <script type="text/javascript" src="/static/js/bootstrap.js"></script>
+    <script type="text/javascript" src="/static/js/jquery-3.1.1.js"></script>
+    <script type="text/javascript" src="node_modules/auth0-js/build/auth0.js"></script>
     <title>Home</title>
     <!-- <script src="/src/github.com/oscar-health/js/testreactjs.js"  type="text/javascript"></script> -->
 
     <script type="text/javascript">
         $(function(){
+            alert("loading the page")
+
             $("#SignInWithGoogle img").mouseover(function(){
                 $(this).attr("src", "../static/img/oauth/btn_google_signin_dark_pressed_web.png")
             }).mouseleave(function(){

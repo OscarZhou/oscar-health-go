@@ -5,6 +5,7 @@ import(
 	"oscar-health-go/controllers"
 	"fmt"
 	"github.com/gin-contrib/sessions"
+	"oscar-health-go/utils"
 )
 
 var(
@@ -22,24 +23,20 @@ func NewRouter() *gin.Engine{
 	return router
 }
 
-// func loadTemplates(){
-// 	var 
-// }
-
 func configRouter() {
 	fmt.Println("...................Configure Router")
+
 	router.GET("/", (&controllers.DefaultController{}).Index)
 
 	router.Use(sessions.Sessions("gosession", store))
 	{
 		router.GET("login", (&controllers.OauthController{}).LoginByAuth)
-		router.GET("auth", (&controllers.OauthController{}).AuthorizationCodeMethod)
+		// router.GET("auth", (&controllers.OauthController{}).AuthorizationCodeMethod)
+		router.GET("auth", (&controllers.OauthController{}).TestMethod)
 	}
 
-
-	v1 := router.Group("/webapi/v1", (&controllers.Controller{}).Init)
+	v1 := router.Group("/webapi/v1", utils.AuthorizeAPIToken)
 	{
-
 		v1.GET("/webapi/v1/product/", (&controllers.ProductController{}).GetProducts)
 		
 		v1.GET("/category/", (&controllers.CategoryController{}).GetProductCategories)
@@ -47,7 +44,6 @@ func configRouter() {
 		v1.POST("/category/", (&controllers.CategoryController{}).CreateProductCategory)
 		v1.PUT("/category/:id", (&controllers.CategoryController{}).UpdateProductCategory)
 		v1.DELETE("/category/:id", (&controllers.CategoryController{}).DeleteProductCategory)		
-
 		
 		v1.GET("/brand/", (&controllers.BrandController{}).GetBrands)
 		v1.GET("/brand/:id", (&controllers.BrandController{}).GetBrand)

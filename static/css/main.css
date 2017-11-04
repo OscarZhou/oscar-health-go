@@ -26,33 +26,44 @@ aside{
 }
 
 div.container{
-    width: 80%;
+    
     margin-top: 100px;
     border: 1px solid #000;
     border-radius: 10px;
     padding: 20px 15px;
-    float:left;
+    
 }
 
-.SignIn input:hover{
+.button-group input:hover{
     cursor: pointer;
 }
 
-.OauthSignIn a{
-    display: block;
-    padding:0px;
-    margin-top: 10px;
-    background-color: #fff;
-    border: none;
+/* OAuth登录提交按钮 */
+div.OauthSignIn{
     text-align: center;
 }
 
-.OauthSignIn img:hover{
+div.SignInWithAuth0{
+    text-align: center;
+}
+
+.OauthSignIn div{
+    margin-top: 10px;
+    text-align: center;
+}
+.OauthSignIn a{
+    width:200px;
+}
+ 
+.OauthSignIn a:hover{
     cursor: pointer;
 }
 
-.OauthSignIn img{
-    width: 200px;
-    height: 46px;
+#SignInWithAuth0 a{
+    padding:9px;
+    border: 1px solid rgb(185, 188, 190);
+    border-radius: 2px;
+    text-decoration: none;
+    color: #E16531;
 }
 

@@ -13,6 +13,7 @@ type CategoryController struct{
 }
 
 func (this *CategoryController) GetProductCategories(c *gin.Context){
+	fmt.Println("........................GetProductCategories")
 	categories := models.GetProductCategories()
 	c.JSON(http.StatusOK, categories)
 }

@@ -49,10 +49,6 @@ func (c *Controller) Finish(){
 	
 }
 
-// func (ct *Controller) Get(){
-// 	http.Error(ct.Ct.Writer, "Method Not Allowed", 405)
-// }
-
 func (ct *Controller) Get(c *gin.Context){
 	http.Error(ct.Ct.Writer, "Method Not Allowed", 405)
 }
@@ -61,7 +57,6 @@ func (ct *Controller) Get(c *gin.Context){
 func (ct *Controller) Post(c *gin.Context){
 	http.Error(ct.Ct.Writer, "Method Not Allowed", 405)
 }
-
 
 func (ct *Controller) Delete(c *gin.Context){
 	http.Error(ct.Ct.Writer, "Method Not Allowed", 405)
