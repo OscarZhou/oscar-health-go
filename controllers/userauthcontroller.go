@@ -181,36 +181,46 @@ func (this *OauthController) TestMethod(c *gin.Context){
 	defer res.Body.Close()
 	body1, _ := ioutil.ReadAll(res.Body)
 
-
-	//c.Redirect(http.StatusMovedPermanently, "http://localhost:9090/webapi/v1/category/")
-	
 	var token Token
 	err := json.Unmarshal(body1, &token)
 	if err != nil {
 		fmt.Println(err)
 	}
 	fmt.Println("Token:" + token.AccessToken)
-	sendJWT(token)	
-//***********************************************
+	fmt.Println("Token:" + token.TokenID)
+
 	
+	// client := conf.Oauth2.Client(oauth2.NoContext, &token)
+	// resp, err := client.Get(conf.UserInfoURL)
+	// if err != nil{
+	// 	c.AbortWithError(http.StatusBadRequest, err)
+	// 	return
+	// }
+
+	// defer resp.Body.Close()
+	// data, _ := ioutil.ReadAll(resp.Body)
+
+	// fmt.Println("-------------------")
+	// fmt.Println(data)
+	sendJWT(token)	
 
 }
 
-func sendJWT(token Token){
-	url := "http://localhost:9090/webapi/v1/category/"
+func sendJWT(token Token) {
+	url := "http://localhost:9090/webapi/v1/brand/4"
 	
 	req, _ := http.NewRequest("GET", url, nil)
 
-	authorization := "Bearer "+ token.AccessToken
+	req.Header.Add("content-type", "application/json")
+	authorization := "Bearer "+ token.TokenID
 	req.Header.Add("authorization", authorization)
 
 	res, _ := http.DefaultClient.Do(req)
-
 	defer res.Body.Close()
 	body, _ := ioutil.ReadAll(res.Body)
-
-	fmt.Println(res)
+	fmt.Println("-------------------")
 	fmt.Println(string(body))
+	
 }
 
 type Token struct{

@@ -26,6 +26,8 @@ func NewRouter() *gin.Engine{
 func configRouter() {
 	fmt.Println("...................Configure Router")
 
+	router.Static("/static/", "/css")
+
 	router.GET("/", (&controllers.DefaultController{}).Index)
 
 	router.Use(sessions.Sessions("gosession", store))

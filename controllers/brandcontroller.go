@@ -6,6 +6,8 @@ import(
 	"net/http"
 	"strconv"
 	"fmt"
+	"html/template"
+	"os"
 )
 
 type BrandController struct{
@@ -15,12 +17,29 @@ type BrandController struct{
 func (this *BrandController) GetBrands(c *gin.Context){
 	brands := models.GetBrands()
 	c.JSON(http.StatusOK, brands)
+	this.Ct = c
+	this.TplNames = "\\views\\brand\\viewbrand.html"
+	pwd, _ := os.Getwd()
+	
+	t, _ := template.ParseFiles(pwd + this.TplNames)
+	t.Execute(c.Writer, brands)
+
 }
 
 func (this *BrandController) GetBrand(c *gin.Context){
+	fmt.Println("------------------------- GetBrand")
 	id := c.Param("id")
 	brand := models.GetBrand(id)
-	c.JSON(http.StatusOK, brand)
+	
+	this.Ct = c
+	this.TplNames = "\\views\\brand\\viewbrand.html"
+	pwd, _ := os.Getwd()
+	fmt.Println("pwd==========="+pwd)
+	t, _ := template.ParseFiles(pwd + this.TplNames)
+	t.Execute(c.Writer, brand)
+
+	
+	// c.JSON(http.StatusOK, brand)
 }
 
 func (this *BrandController) CreateBrand(c *gin.Context){
