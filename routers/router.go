@@ -36,8 +36,10 @@ func configRouter() {
 	router.Use(sessions.Sessions("gosession", store))
 
 	router.GET("login", (&controllers.OauthController{}).LoginByAuth)
-	// router.GET("auth", (&controllers.OauthController{}).AuthorizationCodeMethod)
-	router.GET("auth", (&controllers.OauthController{}).TestMethod1)
+	// router.Use(controllers.EmulateFrontEndSendToken())
+	router.GET("auth", (&controllers.OauthController{}).AuthorizationCodeMethod)
+
+	router.GET("/brand", controllers.EmulateFrontEndSendToken(), controllers.AuthorizeServer(), controllers.CheckJWT(), (&controllers.OauthController{}).TestMethod)
 
 	v1 := router.Group("/webapi/v1", utils.AuthorizeAPIToken)
 	v1.GET("/webapi/v1/product/", (&controllers.ProductController{}).GetProducts)

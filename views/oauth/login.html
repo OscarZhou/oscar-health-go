@@ -1,27 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <link href="../../static/css/bootstrap.css" rel="stylesheet" />
     <link href="../../static/css/main.css" rel="stylesheet" />
-    <script type="text/javascript" src="../../static/js/bootstrap.js"></script>
     <script type="text/javascript" src="../../static/js/jquery-3.1.1.js"></script>
+    <script type="text/javascript" src="../../static/js/bootstrap.js"></script>
     <title>Login</title>
     <!-- <script src="/src/github.com/oscar-health/js/testreactjs.js"  type="text/javascript"></script> -->
 
     <script type="text/javascript">
-        $(function(){
-            $("#SignInWithGoogle img").mouseover(function(){
-                $(this).attr("src", "../../static/img/oauth/btn_google_signin_dark_pressed_web.png")
-            }).mouseleave(function(){
-                $(this).attr("src", "../../static/img/oauth/btn_google_signin_dark_normal_web.png")
-            })
+        $(function () {    
+            $("#SignInWithGoogle img")
+                .mouseover(function () {
+                    $(this).attr("src", "../../static/img/oauth/btn_google_signin_dark_pressed_web.png")
+                })
+                .mouseleave(function () {
+                    $(this).attr("src", "../../static/img/oauth/btn_google_signin_dark_normal_web.png")
+                })
 
-            $("#SignInWithAuth0 a").mouseover(function(){
-                $(this).css('background-color', '#EFF0F1')
-            }).mouseleave(function(){
-                $(this).css('background-color', '#FFFFFF')
-            })
+            $("#SignInWithAuth0 a")
+                .mouseover(function () {
+                    $(this).css('background-color', '#EFF0F1')
+                })
+                .mouseleave(function () {
+                    $(this).css('background-color', '#FFFFFF')
+                })
+                // .click(function () {
+                //     // var url = encodeURIComponent('http://oscarhealth.au.auth0.com/authorize?response_type=code&client_id=k8xl9YxCdysNy0TB45kFTt86juG5GdH0&redirect_uri=http://localhost:9090/auth&scope=openid profile&state=xyz')
+
+                //     var url = "http://oscarhealth.au.auth0.com/authorize?response_type=code&client_id=k8xl9YxCdysNy0TB45kFTt86juG5GdH0&redirect_uri=http://localhost:9090/auth&scope=openid profile"
+
+                //     $.ajax({
+                //         url: url,
+                //         type: "GET",
+                //         contentType: "application/x-www-form-urlencoded",
+                //         dataType: "text",
+                //         success: function (data) {
+                //             alert(data)
+                //         },
+                //         error: function () {
+                //             alert("ajax request error!")
+                //         }
+                //     });
+                // })
+
+            
+            
         });
     </script>
 </head>
@@ -41,24 +67,24 @@
                 <input type="button" class="btn btn-dark" id="SignUp" value="Sign Up" />
                 <input type="button" class="btn btn-dark" id="SignIn" value="Sign In" />
             </div>
-            
+
         </form>
 
         <div class="OauthSignIn">
             <div id="SignInWithAuth0">
                 <a href="http://localhost:9090/login?authServer=auth0">
-                    <img src="../../static/img/oauth/btn_auth0_signin_dark_normal_web.png">       Sign in with Auth0
-                </a> 
+                    <img src="../../static/img/oauth/btn_auth0_signin_dark_normal_web.png"> Sign in with Auth0
+                </a>
             </div>
             <div id="SignInWithGoogle">
                 <a href="http://localhost:9090/login?authServer=google">
                     <img src="../../static/img/oauth/btn_google_signin_dark_normal_web.png">
-                </a>    
+                </a>
             </div>
-            
         </div>
-            
+
     </div>
-    
+
 </body>
+
 </html>

@@ -6,7 +6,6 @@
     <link href="/static/css/main.css" rel="stylesheet" />
     <script type="text/javascript" src="/static/js/bootstrap.js"></script>
     <script type="text/javascript" src="/static/js/jquery-3.1.1.js"></script>
-    <script type="text/javascript" src="node_modules/auth0-js/build/auth0.js"></script>
     <title>Home</title>
     <!-- <script src="/src/github.com/oscar-health/js/testreactjs.js"  type="text/javascript"></script> -->
 
@@ -14,31 +13,32 @@
         $(function(){
             alert("loading the page")
 
-            $("#SignInWithGoogle img").mouseover(function(){
+            $("#SignInWithGoogle img")
+            .mouseover(function(){
                 $(this).attr("src", "../static/img/oauth/btn_google_signin_dark_pressed_web.png")
-            }).mouseleave(function(){
+            })
+            .mouseleave(function(){
                 $(this).attr("src", "../static/img/oauth/btn_google_signin_dark_normal_web.png")
             })
-            
-            // .click(function(){
-            //     $.ajax({
-            //         url: 'http://localhost:9090/login?authServer=google',
-            //         type: 'GET',
-            //         success: function(data){
-            //             alert(data)
-            //             // $.ajax({
-            //             //     url: data,
-            //             //     type: 'GET',
-            //             //     error: function(){
-            //             //         alert("fail to request grant!")
-            //             //     }
-            //             // })
-            //         },
-            //         error: function(){
-            //             alert("ajax request error!")
-            //         }
-            //     });
-            // })
+            .click(function(){
+                $.ajax({
+                    url: 'http://localhost:9090/login?authServer=google',
+                    type: 'GET',
+                    success: function(data){
+                        alert(data)
+                        // $.ajax({
+                        //     url: data,
+                        //     type: 'GET',
+                        //     error: function(){
+                        //         alert("fail to request grant!")
+                        //     }
+                        // })
+                    },
+                    error: function(){
+                        alert("ajax request error!")
+                    }
+                });
+            })
         });
     </script>
 </head>
